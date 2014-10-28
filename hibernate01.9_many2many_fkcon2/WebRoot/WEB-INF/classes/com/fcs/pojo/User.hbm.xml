@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.fcs.pojo">
+    	<class name="User" table="t_user" >
+			<id name="id">
+				<generator class="native"></generator>
+			</id>    	
+    		<property name="name"></property>
+    		<!-- 多对多配置 -->
+    		<set name="r" table="t_user_role">
+    			<key column="u" ></key>
+    			 <!--  下面的column 就是另外一方的key 的column -->
+    			<many-to-many class="Role" column="r"></many-to-many>
+    		</set>
+    	</class>
+    	
+    </hibernate-mapping>

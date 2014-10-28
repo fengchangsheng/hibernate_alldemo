@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.fcs.pojo">
+    <class name="User" table="TUser">
+     <id name="id" column="id">
+     <!-- native:本地主键自增长
+          uuid:表示的是主键随机取值。并且主键是String类型
+          assigned:主键 
+          foreign:引用外面的字段(另一张表的主键)
+          o2o唯一主键关联 
+      -->
+      <generator class="native"></generator>
+     </id>
+     <property name="name"></property>
+     <property name="pass"></property>
+    </class>
+    </hibernate-mapping>

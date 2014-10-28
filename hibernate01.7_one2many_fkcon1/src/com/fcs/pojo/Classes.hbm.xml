@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.fcs.pojo">
+    	<class name="Classes" table="t_classes">
+			<id name="id">
+				<generator class="native"></generator>
+			</id>    	
+    		<property name="name"></property>
+    		 <!-- 1:m 
+              key: column="多的一方持有一的一方的外键字段"
+              inverse: 参数的改变只是改变了SQL语句
+              	为true时关联字段是null  为false能正常插入
+         	 -->
+         	 <!-- 一对多的配置-->
+         	 <set name="s" inverse="true">
+         	 	<key column="c"></key>
+         	 	<one-to-many class="Student"/>
+         	 </set> 
+    	</class>
+    </hibernate-mapping>

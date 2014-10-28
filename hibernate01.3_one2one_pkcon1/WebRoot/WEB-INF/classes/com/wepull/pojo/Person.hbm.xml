@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.wepull.pojo">
+ 		<class name="Person" table="TPerson">
+ 		<!-- 
+ 		<param name="property">i</param>
+ 		表示参照其他表的主键到但是自己不是自增长的
+ 		 -->
+ 			<id name="id">
+ 				<generator class="foreign">
+ 					<param name="property">i</param>
+ 				</generator>
+ 			</id>
+ 			<property name="name"></property>
+ 			<!-- 一对一唯一主键的关联配置如下 :
+ 				name:持有的外键(i)
+ 				constrained="true"  表示产生关系   默认是FALSE
+ 			
+ 			-->
+ 			<one-to-one name="i" constrained="true"></one-to-one>
+ 		</class>   
+    
+    </hibernate-mapping>
